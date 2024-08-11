@@ -19,7 +19,7 @@ import java.io.InputStream;
 
 /**
  * Service for sending emails with attachments.
- */
+  */
 @Service
 public class EmailService {
 
