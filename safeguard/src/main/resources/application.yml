@@ -27,6 +27,13 @@ spring:
           starttls:
             enable: true
 
+  web:
+    cors:
+      allowed-origins: "http://127.0.0.1:5500" # Allow the specific frontend origin
+      allowed-methods: GET, POST, PUT, DELETE, OPTIONS
+      allowed-headers: "*" # Allow all headers
+      allow-credentials: true
+
 logging:
   level:
     root: WARN
