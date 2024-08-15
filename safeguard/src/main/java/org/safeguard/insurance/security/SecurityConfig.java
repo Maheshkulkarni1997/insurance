@@ -43,9 +43,9 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration config = new CorsConfiguration();
-                config.setAllowedOrigins(Collections.singletonList("http://127.0.0.1:5500"));
+                config.setAllowedOrigins(Collections.singletonList("http://127.0.0.1:5500")); // Ensure this matches your frontend URL
                 config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-                config.setAllowedHeaders(Arrays.asList("*"));
+                config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization")); // Adjust headers if needed
                 config.setAllowCredentials(true);
                 return config;
             }))

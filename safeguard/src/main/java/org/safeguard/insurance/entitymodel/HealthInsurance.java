@@ -84,5 +84,10 @@ public class HealthInsurance extends BaseInsurancePolicy implements Serializable
 
     @Column(name = "next_premium_date")
     private LocalDate nextPremiumDate;
+    
+    
+    @Column(name = "policy_date")
+    private LocalDate policyDate;
+    
 }
 

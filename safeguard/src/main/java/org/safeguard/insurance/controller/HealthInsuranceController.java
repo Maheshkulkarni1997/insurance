@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @Validated
+@CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "*")
 public class HealthInsuranceController {
 
     @Autowired
