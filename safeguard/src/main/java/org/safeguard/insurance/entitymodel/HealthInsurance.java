@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 import org.safeguard.insurance.base.BaseInsurancePolicy;
 import org.safeguard.insurance.enums.PolicyType;
+import org.safeguard.insurance.exception.ActionValidationGroups;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,6 +17,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,23 +28,27 @@ import lombok.EqualsAndHashCode;
 @Table(name = "health_insurance")
 @Data
 @SuppressWarnings("serial")
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class HealthInsurance extends BaseInsurancePolicy implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "policy_id")
-	private Long policyId;
+	@NotNull(groups = ActionValidationGroups.Update.class, message = "HealthInsurance id must be not null")
+	private Long id;
 
 	@Column(name = "policy_number", nullable = false, unique = true)
 	@Size(max = 255, message = "Policy number cannot exceed 255 characters.")
+	@NotBlank(message = "Policy number must be not blank")
 	private String policyNumber;
 
 	@Column(name = "email_address", nullable = false, unique = true)
-	@Size(max = 100, message = "Email Address cannot exceed 100 characters.")
+	@Email(message = "Invalid email address")
+	@NotBlank(message = "Email Address cannot be blank")
+	@Size(max = 100, message = "Email Address cannot exceed 100 characters")
 	private String emailAddress;
 
-	@Column(name = "Mobile_Number")
+	@Column(name = "mobile_number")
 	private Long mobileNumber;
 
 	@Enumerated(EnumType.STRING)
@@ -48,6 +56,8 @@ public class HealthInsurance extends BaseInsurancePolicy implements Serializable
 	private PolicyType policyType;
 
 	@Column(name = "policy_holder_name", nullable = false)
+	@NotBlank(message = "Policy holder name cannot be blank")
+	@Size(max = 255, message = "Policy holder name cannot exceed 255 characters")
 	private String policyHolderName;
 
 	@Lob

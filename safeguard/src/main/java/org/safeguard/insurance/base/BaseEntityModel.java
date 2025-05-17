@@ -1,15 +1,11 @@
 package org.safeguard.insurance.base;
 
-
-
 import java.time.LocalDateTime;
 
 import org.safeguard.insurance.entitymodel.YesNoConverter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -22,22 +18,22 @@ import lombok.Data;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntityModel {
 
-    @CreatedDate
-    @Column(name = "created_date", updatable = false)
-    private LocalDateTime createdDate;
+	@CreatedDate
+	@Column(name = "created_date", updatable = false)
+	private LocalDateTime createdDate;
 
-    @LastModifiedDate
-    @Column(name = "updated_date")
-    private LocalDateTime updatedDate;
+	@LastModifiedDate
+	@Column(name = "updated_date")
+	private LocalDateTime updatedDate;
 
-    @Column(name = "created_by")
-    private String createdBy;
+	@Column(name = "created_by")
+	private String createdBy;
 
-    @Column(name = "updated_by")
-    private String updatedBy;
+	@Column(name = "updated_by")
+	private String updatedBy;
 
-    @Convert(converter = YesNoConverter.class)
-    @Column(name = "is_active", nullable = false)
-    private Boolean isActive;
-    
+	@Convert(converter = YesNoConverter.class)
+	@Column(name = "is_active", nullable = false)
+	private Boolean isActive;
+
 }
