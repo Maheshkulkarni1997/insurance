@@ -4,7 +4,7 @@ package org.safeguard.insurance.base;
 
 import java.time.LocalDateTime;
 
-import org.safeguard.insurance.converter.YesNoConverter;
+import org.safeguard.insurance.entitymodel.YesNoConverter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;

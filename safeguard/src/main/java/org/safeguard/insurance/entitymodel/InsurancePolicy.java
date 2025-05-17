@@ -9,8 +9,6 @@
 
 package org.safeguard.insurance.entitymodel;
 
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,10 +18,10 @@ import lombok.Data;
 @Entity
 @Data
 public class InsurancePolicy {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String policyNumber;
-    private String policyHolderName;
-    private Double coverageAmount;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String policyNumber;
+	private String policyHolderName;
+	private Double coverageAmount;
 }
