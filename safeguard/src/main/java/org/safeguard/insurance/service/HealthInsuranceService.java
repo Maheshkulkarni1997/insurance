@@ -73,12 +73,12 @@ public class HealthInsuranceService {
 		healthInsurance.setPolicyNumber(policyNumber);
 		logger.debug("Generated policy number: {}", policyNumber);
 
-		healthInsurance.setIsActive(true);
-
 		HealthInsurance savedPolicy = healthInsuranceRepository.save(healthInsurance);
 		logger.info("Successfully saved health insurance policy with ID: {}", savedPolicy.getId());
 
 		sendConfirmationEmail(savedPolicy);
+
+		healthInsurance.setIsActive(true);
 
 		return savedPolicy;
 	}
