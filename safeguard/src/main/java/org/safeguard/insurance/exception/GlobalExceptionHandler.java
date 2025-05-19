@@ -15,8 +15,8 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>("Application error: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@ExceptionHandler(DuplicativeEntityFoundException.class)
-	public ResponseEntity<String> handleDuplicativeEntityFoundException(DuplicativeEntityFoundException ex) {
+	@ExceptionHandler(DuplicateEntityFoundException.class)
+	public ResponseEntity<String> handleDuplicativeEntityFoundException(DuplicateEntityFoundException ex) {
 		return new ResponseEntity<>("Duplicative Entity Found: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 

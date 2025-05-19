@@ -9,19 +9,18 @@
 
 package org.safeguard.insurance.exception;
 
+@SuppressWarnings("serial")
 public class ApplicationException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
+	private final String errorMessage;
 
-    private final String errorMessage;
+	public ApplicationException(String errorMessage) {
+		super(errorMessage);
+		this.errorMessage = errorMessage;
+	}
 
-    public ApplicationException(String errorMessage) {
-        super(errorMessage);
-        this.errorMessage = errorMessage;
-    }
-
-    @Override
-    public String getMessage() {
-        return errorMessage;
-    }
+	@Override
+	public String getMessage() {
+		return errorMessage;
+	}
 }

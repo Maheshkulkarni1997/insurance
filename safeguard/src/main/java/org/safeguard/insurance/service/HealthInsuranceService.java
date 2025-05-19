@@ -9,7 +9,7 @@ import java.util.UUID;
 import org.safeguard.insurance.entitymodel.HealthInsurance;
 import org.safeguard.insurance.enums.PolicyType;
 import org.safeguard.insurance.exception.ApplicationException;
-import org.safeguard.insurance.exception.DuplicativeEntityFoundException;
+import org.safeguard.insurance.exception.DuplicateEntityFoundException;
 import org.safeguard.insurance.repository.HealthInsuranceRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,7 +61,7 @@ public class HealthInsuranceService {
 		Long id = healthInsurance.getId();
 
 		if (id != null && healthInsuranceRepository.existsById(id)) {
-			throw new DuplicativeEntityFoundException("The given policy is alredy exist");
+			throw new DuplicateEntityFoundException("The given policy is alredy exist");
 		}
 
 		if (healthInsurance.getPolicyDate() == null) {
