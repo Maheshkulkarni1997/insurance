@@ -28,6 +28,12 @@ public class HealthInsuranceController {
 	@Autowired
 	private HealthInsuranceService healthInsuranceService;
 
+	@GetMapping("/")
+    public String hello() {
+        return "Hello from server";
+    }
+
+	
 	@GetMapping("/api/healthinsurance")
 	public List<HealthInsurance> getAllPolicies() {
 		return healthInsuranceService.getAllPolicies();
@@ -67,3 +73,4 @@ public class HealthInsuranceController {
 		return ResponseEntity.ok(policies);
 	}
 }
+
