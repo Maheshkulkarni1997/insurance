@@ -173,11 +173,15 @@
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <sourceDirectory>safeguard/src/main/java</sourceDirectory>
+    <!-- If your Java files are directly in safeguard/ without src/main/java structure, use: -->
+    <!-- <sourceDirectory>safeguard</sourceDirectory> -->
+    
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
 </project>
